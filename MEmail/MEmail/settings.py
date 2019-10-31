@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'campaign.apps.CampaignConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -127,3 +128,18 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static")
 ]
+
+"""MailChimp credentials"""
+# Video reference
+# https://www.youtube.com/watch?v=2KeV42YaPes&t=218s
+
+# Used to make connection for REST API requests
+MAILCHIMP_API_KEY = os.environ['MAILCHIMP_API_KEY']
+
+#last 4 digits of API Key
+MAILCHIMP_DATA_CENTER = os.environ['MAILCHIMP_API_KEY'][-4:]
+
+# Access Audience in Mailchimp
+MAILCHIMP_AUD_ID = os.environ['MAILCHIMP_AUD_ID']
+
+USER_EMAIL = os.environ['BUSN_EMAIL']
