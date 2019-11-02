@@ -41,10 +41,10 @@ def campaign_retreive_all(request):
 def campaign_creation(request):
 
     data = {
-        "type": "regular",
+        "type": "plaintext",
         "settings":
         {
-            "subject_line": 'test Django',
+            "subject_line": 'test Django - plaintext',
             "from_name": 'Yusuf',
             "reply_to": MC_USER
         }
@@ -64,11 +64,16 @@ def campaign_update(request):
     # Still having issues with this
     #https://mailchimp.com/developer/reference/campaigns/campaign-content/#put_/campaigns/-campaign_id-/content
 
-    campaign_id = 'c2df2c2e25'
-    update_url = f"{campaign_url}/{campaign_id}/content"
+    campaign_id_reg = 'c2df2c2e25'
+    campaign_id_plain = 'ee666a8d2e'
+    web_id = 333993
+    update_url = f"{campaign_url}/{campaign_id_reg}/content"
+
+    html = '<html>The guy, I am the guy</html>'
 
     data = {
-        "html": "<h1>Hello, my guy</h1>",
+        "plaintext": "Hello, my guy",
+        "html": html
     }
 
     # Used to post to user endpoint. Data is converted to a JSON
