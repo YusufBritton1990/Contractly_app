@@ -15,6 +15,7 @@ MC_USER = settings.USER_EMAIL
 url =  f"https://{MD_DC}.api.mailchimp.com/3.0/"
 aud_endpoint = f"{url}/lists/{MC_AUD}"
 campaign_url = f"{url}/campaigns"
+templates_url = f"{url}/templates"
 
 """HTML Templates functions"""
 # Index, used in Bootstrap
@@ -36,6 +37,20 @@ def campaign_retreive_all(request):
 
     return HttpResponse(r)
     # return JsonResponse({r}, safe=False)
+
+def campaign_content(request):
+
+    campaign_id_reg = 'c2df2c2e25'
+    campaign_id_plain = 'ee666a8d2e'
+    content_url = f'{campaign_url}/{campaign_id_reg}/content'
+
+    # Used to post to user endpoint. Data is converted to a JSON
+    r = requests.get(
+        campaign_url,
+        auth = (MC_USER,MC_API)
+    )
+
+    return HttpResponse(r)
 
 
 def campaign_creation(request):
@@ -61,19 +76,24 @@ def campaign_creation(request):
 
 def campaign_update(request):
 
-    # Still having issues with this
+    # Getting Message field error
     #https://mailchimp.com/developer/reference/campaigns/campaign-content/#put_/campaigns/-campaign_id-/content
 
     campaign_id_reg = 'c2df2c2e25'
-    campaign_id_plain = 'ee666a8d2e'
-    web_id = 333993
+    # campaign_id_plain = 'ee666a8d2e'
+    # web_id = 333993
     update_url = f"{campaign_url}/{campaign_id_reg}/content"
 
-    html = '<html>The guy, I am the guy</html>'
+    htm = "<h1>The guy, I am the guy</h1>... here a link <a href='https://www.w3schools.com/html/'>Visit our HTML tutorial</a>"
+
+    # Template ID
+    temp_id = 78517
 
     data = {
-        "plaintext": "Hello, my guy",
-        "html": html
+        # "plaintext": render(request, 'index.html')
+        # "html": render(request, 'contract_template.html')
+        # "html": htm
+        "template": {"id": temp_id}
     }
 
     # Used to post to user endpoint. Data is converted to a JSON
@@ -83,4 +103,37 @@ def campaign_update(request):
         data = json.dumps(data)
     )
 
+    # return HttpResponse(r)
     return HttpResponse(r)
+
+"""MailChimp Templates REST request functions"""
+
+def get_template(request):
+
+    temp_id = '78517'
+    temp_id_url = f'{templates_url}/{temp_id}'
+
+    # Used to post to user endpoint. Data is converted to a JSON
+    r = requests.get(
+        temp_id_url,
+        auth = (MC_USER,MC_API)
+    )
+
+    return HttpResponse(r)
+    # return JsonResponse({r}, safe=False)
+
+def template_content(request):
+    # Look at making editable sections to make campaigns. May need the 14.99 plan to do it
+    # https://www.google.com/search?q=mailchimp+editable+sections+in+template&rlz=1C1CHBF_enUS779US779&sxsrf=ACYBGNTDIWSeskGbsrKAyWLg5Vf4pB55dA:1573218331421&source=lnms&tbm=vid&sa=X&ved=0ahUKEwi8pbH-1trlAhWGTN8KHXkOBIMQ_AUIEygC&biw=1707&bih=813&dpr=1.13
+
+    temp_id = '78517'
+    temp_id_url = f'{templates_url}/{temp_id}/default-content'
+
+    # Used to post to user endpoint. Data is converted to a JSON
+    r = requests.get(
+        temp_id_url,
+        auth = (MC_USER,MC_API)
+    )
+
+    return HttpResponse(r)
+    # return JsonResponse({r}, safe=False)

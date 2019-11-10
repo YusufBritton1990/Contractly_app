@@ -22,4 +22,8 @@ urlpatterns = [
     path('retrieve', views.campaign_retreive_all),
     path('new-campaign', views.campaign_creation),
     path('update-campaign', views.campaign_update),
+    path('campaign-content', views.campaign_content),
+
+    path('get-template', views.get_template),
+    path('template-content', views.template_content),
 ]

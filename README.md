@@ -2,8 +2,7 @@
 
 Steps:
 
-Currently, I am trying to use a PUT request to update a campaign with content.
-For now, I am able to add HTML into this request and I see that it comes back in a response, but the MC campaign isn't updated.
+Testing with Mailchimp to include contract data using mail tags
 
 
 Links

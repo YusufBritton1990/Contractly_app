@@ -51,9 +51,9 @@ output
 
 
 """Update content into new campaign"""
-mc_camp_id = "7dc8db005a"
-# mc_camp_id = 309745
-camp = client.campaigns.get(campaign_id=mc_camp_id)
+# mc_camp_id = "7dc8db005a"
+# # mc_camp_id = 309745
+# camp = client.campaigns.get(campaign_id=mc_camp_id)
 
 
 # TODO: The instance isn't updating. might have to sleep between the creation
@@ -65,3 +65,7 @@ camp = client.campaigns.get(campaign_id=mc_camp_id)
 
 # res = client.campaigns.content.get(campaign_id=mc_camp_id)
 # print(res)
+
+
+r = client.campaigns.content.get(campaign_id='c2df2c2e25')
+print(r)
