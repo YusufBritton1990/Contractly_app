@@ -19,5 +19,8 @@ from . import views
 
 urlpatterns = [
     path('retrieve', views.list_retreive_all),
+    path('partial', views.partial_retreive_all),
+
+    path('seg/retrieve', views.segment_retreive_all),
 
 ]
