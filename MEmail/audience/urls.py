@@ -19,12 +19,14 @@ from . import views
 
 urlpatterns = [
     path('retrieve', views.list_retreive_all),
-    path('partial', views.partial_retreive_all),
+    path('partial', views.list_retreive_partial),
 
     path('seg/retrieve', views.segment_retreive_all),
 
     path('mer/retrieve', views.merge_retreive_all),
 
     path('mem/retrieve', views.members_retreive_all),
+    path('mem/one', views.members_retreive_one),
+    path('mem/update', views.members_update),
 
 ]
