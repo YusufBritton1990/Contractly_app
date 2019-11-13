@@ -23,4 +23,8 @@ urlpatterns = [
 
     path('seg/retrieve', views.segment_retreive_all),
 
+    path('mer/retrieve', views.merge_retreive_all),
+
+    path('mem/retrieve', views.members_retreive_all),
+
 ]
