@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'usa_spend.apps.UsaSpendConfig',
     'sam_gov.apps.SamGovConfig',
     'audience.apps.AudienceConfig',
     'campaign.apps.CampaignConfig',

@@ -5,6 +5,9 @@ from django.http import HttpResponse, JsonResponse #needed to show a response in
 import json
 import requests
 
+# Documentation
+# https://gsa.github.io/sam_api/sam/basics.html
+
 def sam_get(request):
     # r = requests.get(
     #     list_url,
