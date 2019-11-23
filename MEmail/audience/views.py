@@ -108,7 +108,7 @@ def members_update(request):
     # TODO: Test to see if you can update one email. Need to redo this as a list member, doing it as a segment member doesn't work
     data = {
         "merge_fields" : {
-            "CREQ2" : "Smuckers coolness"
+            "CREQ1" : "Cam, this thing is finally working!"
             }
     }
 
