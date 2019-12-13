@@ -146,3 +146,6 @@ MAILCHIMP_DATA_CENTER = os.environ['MAILCHIMP_API_KEY'][-4:]
 MAILCHIMP_AUD_ID = os.environ['MAILCHIMP_AUD_ID']
 
 USER_EMAIL = os.environ['BUSN_EMAIL']
+
+"""SAM credentials"""
+SAM_API = os.environ['SAM_GOV_API_KEY']
