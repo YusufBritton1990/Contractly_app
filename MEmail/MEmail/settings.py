@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'beta_sams.apps.BetaSamsConfig',
     'usa_spend.apps.UsaSpendConfig',
     'sam_gov.apps.SamGovConfig',
     'audience.apps.AudienceConfig',
@@ -149,3 +150,4 @@ USER_EMAIL = os.environ['BUSN_EMAIL']
 
 """SAM credentials"""
 SAM_API = os.environ['SAM_GOV_API_KEY']
+BETA_SAM_API = os.environ['BETA_SAM_API_KEY']

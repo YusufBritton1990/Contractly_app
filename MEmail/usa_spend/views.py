@@ -5,6 +5,8 @@ import requests
 import datetime
 import json #was able to work without it, but filter isn't working
 
+"""Check the budget for contracts"""
+
 # API Endpoints
 url = f"https://api.usaspending.gov/api/v2"
 visual_url = f"{url}/search/spending_by_category/"
